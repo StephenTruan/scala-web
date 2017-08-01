@@ -13,7 +13,7 @@ import org.springframework.data.domain.PageRequest
 
 @Service
 abstract class BaseService[T: ClassTag] {
-    
+
     /** spring data jpa dao*/
     @Autowired val jpaRepository: JpaRepository[T, Long] = null
     
@@ -90,6 +90,6 @@ abstract class BaseService[T: ClassTag] {
       var rpage = if (page < 1) 1 else page;
       var rpageSize = if (pageSize < 1) 5 else pageSize;
 		  jpaRepository.findAll(new PageRequest(rpage - 1, pageSize))
-    }    
+    }
 
 }
