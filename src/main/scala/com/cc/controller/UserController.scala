@@ -16,6 +16,7 @@ import com.cc.service.UserService
 
 @Controller
 @ResponseBody
+@RequestMapping(value = Array("/user"))
 class UserController @Autowired()(private val userService : UserService){
   
 	@RequestMapping(value = Array("/list"), method = Array(RequestMethod.GET))
