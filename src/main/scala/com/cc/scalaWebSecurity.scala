@@ -20,10 +20,12 @@ class scalaWebSecurity extends WebSecurityConfigurerAdapter {
   override protected def configure(http: HttpSecurity): Unit = {
     http
       .csrf().disable()
+      .formLogin().and()
       .authorizeRequests()
-      .antMatchers(HttpMethod.GET, "/find/.*").authenticated()
+      .antMatchers(HttpMethod.GET, "/user/**", "/score/**").authenticated()
       .antMatchers(HttpMethod.POST).hasRole("ADMIN")
       .anyRequest().permitAll()
+      .and()
   }
 
 }

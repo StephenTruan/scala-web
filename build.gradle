@@ -1,13 +1,13 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.6.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '1.5.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'scala'
@@ -18,22 +18,22 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 
 dependencies {
-	compile("org.springframework.boot:spring-boot-starter-web")
-	compile("org.springframework.boot:spring-boot-starter-actuator")
-	compile("org.springframework.boot:spring-boot-starter-data-jpa")
-	compile("org.springframework.boot:spring-boot-starter-security")
-	compile ("org.scala-lang:scala-library:2.11.7")
-	compile ("org.scala-lang:scala-compiler:2.11.7")
-	compile ("org.scala-lang:scala-reflect:2.11.7")
-	compile ("mysql:mysql-connector-java:5.1.38")
-	testCompile("junit:junit:4.12")
-	compile ('org.apache.spark:spark-streaming_2.11:1.6.1'){
-		exclude group: 'org.slf4j'
-	}
-	testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.scala-lang:scala-library:2.11.7")
+    compile("org.scala-lang:scala-compiler:2.11.7")
+    compile("org.scala-lang:scala-reflect:2.11.7")
+    compile("mysql:mysql-connector-java:5.1.38")
+    testCompile("junit:junit:4.12")
+    compile('org.apache.spark:spark-streaming_2.11:1.6.1') {
+        exclude group: 'org.slf4j'
+    }
+    testCompile("org.springframework.boot:spring-boot-starter-test")
 }
