@@ -1,0 +1,45 @@
+{
+  "extends": "eslint:recommended",
+  "globals": {
+    "Ext": true,
+    "Amili": true,
+    "nw": true,
+    "angular": true
+  },
+  "env": {
+    "browser": 1
+  },
+  "rules": {
+    "quotes": [
+      1,
+      "single"
+    ],
+    "indent": [
+      2,
+      4
+    ],
+    "no-unused-vars": [
+      1,
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "comma-dangle": [
+      2,
+      {
+        "arrays": "never",
+        "objects": "never",
+        "imports": "never",
+        "exports": "never",
+        "functions": "ignore"
+      }
+    ],
+    "eqeqeq": [
+      2,
+      "smart"
+    ],
+    "camelcase": 2
+  }
+}

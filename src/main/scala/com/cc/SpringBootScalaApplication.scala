@@ -6,9 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 @SpringBootApplication
 class Config
 
-
 object SpringBootScalaApplication extends App {
 
   SpringApplication.run(classOf[Config])
-  
+
 }
