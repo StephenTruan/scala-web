@@ -11,7 +11,7 @@ import java.util.List
 class ScoreController @Autowired()(private val scoreService: ScoreService) {
 
   @RequestMapping(value = Array("list"))
-  def scores():List[Score]={
+  def scores(): List[Score] = {
     scoreService.findAll
   }
 

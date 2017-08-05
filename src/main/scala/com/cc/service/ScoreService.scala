@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class ScoreService extends BaseService[Score]{
+class ScoreService extends BaseService[Score] {
 
-  @Autowired val scoreRepository:ScoreRepository = null
+  @Autowired val scoreRepository: ScoreRepository = null
 
 }

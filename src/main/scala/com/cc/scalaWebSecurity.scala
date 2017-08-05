@@ -40,7 +40,7 @@ class scalaWebSecurity extends WebSecurityConfigurerAdapter {
       .antMatchers(HttpMethod.GET, "/score/list").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
       .antMatchers(HttpMethod.GET, "/user/find/**").hasAuthority("ROLE_ADMIN")
       .antMatchers(HttpMethod.POST).hasRole("ADMIN")
-      .anyRequest().permitAll();
+      .anyRequest().permitAll()
   }
 
 }

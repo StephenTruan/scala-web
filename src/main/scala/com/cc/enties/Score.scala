@@ -26,4 +26,6 @@ class Score {
   @Column(name = "USER_ID")
   var userId: Long = _
 
+  override def toString: String = "用户ID：" + userId + "数学成绩：" + math + "英语成绩：" + english
+
 }
