@@ -9,7 +9,7 @@ import scala.beans.BeanProperty
 class Score {
 
   @Id
-  @Column(name = "ID")
+  @Column(name = "UUID")
   @GeneratedValue
   @BeanProperty
   var id: Long = _

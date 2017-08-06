@@ -1,5 +1,7 @@
 package com.cc.controller
 
+import java.util
+
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
@@ -7,8 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.beans.factory.annotation.Autowired
 import com.cc.enties.User
 import java.util.List
+
 import org.springframework.web.bind.annotation.PathVariable
 import javax.validation.Valid
+
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.data.domain.Page
@@ -37,6 +41,11 @@ class UserController @Autowired()(private val userService: UserService) {
   @RequestMapping(value = Array("delete/{id}"), method = Array(RequestMethod.POST))
   def delete(@PathVariable(value = "id") id: Long): Unit = {
     userService.delete(id)
+  }
+
+  @RequestMapping(value = Array("/findByName"), method = Array(RequestMethod.POST))
+  def findByName(@RequestParam("name") name: String): List[User] = {
+    userService.findByName(name)
   }
 
   @RequestMapping(value = Array("update"), method = Array(RequestMethod.POST))

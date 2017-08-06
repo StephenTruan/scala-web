@@ -18,10 +18,10 @@ class scalaWebSecurity extends WebSecurityConfigurerAdapter {
     auth
       .jdbcAuthentication().dataSource(dataSource)
       .usersByUsernameQuery(
-        "SELECT NAME, PASSWORD, STATE FROM TBL_USER WHERE NAME =?"
+        "SELECT AVATAR, PASSWORD, STATE FROM TBL_USER WHERE AVATAR =?"
       )
       .authoritiesByUsernameQuery(
-        "SELECT u. NAME, r.ROLE_NAME FROM TBL_USER u RIGHT JOIN TBL_ROLE r ON u.ROLE_ID = r.UUID WHERE NAME = ?"
+        "SELECT u.AVATAR, r.ROLE_NAME FROM TBL_USER_ROLE ur LEFT JOIN TBL_USER u ON u.UUID = ur.USER_UUID RIGHT JOIN TBL_ROLE r ON r.UUID = ur.ROLE_UUID WHERE AVATAR = ?"
       )
   }
 
@@ -37,8 +37,8 @@ class scalaWebSecurity extends WebSecurityConfigurerAdapter {
       .and()
       .authorizeRequests()
       .antMatchers(HttpMethod.GET, "/user/list").authenticated()
-      .antMatchers(HttpMethod.GET, "/score/list").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-      .antMatchers(HttpMethod.GET, "/user/find/**").hasAuthority("ROLE_ADMIN")
+      .antMatchers(HttpMethod.GET, "/score/list").hasAnyAuthority("ROLE_USER")
+      .antMatchers(HttpMethod.GET, "/user/find/**").hasAuthority("ROLE_VIP")
       .antMatchers(HttpMethod.POST).hasRole("ADMIN")
       .anyRequest().permitAll()
   }
