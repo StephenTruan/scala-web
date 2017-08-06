@@ -1,6 +1,6 @@
 package com.cc.enties
 
-import javax.persistence._
+import javax.persistence.{Entity, Id, Table, Column, GeneratedValue, JoinColumn, ManyToOne}
 
 import scala.beans.BeanProperty
 
@@ -23,9 +23,10 @@ class Score {
   var english: Double = _
 
   @BeanProperty
-  @Column(name = "USER_ID")
-  var userId: Long = _
+  @JoinColumn(name = "USER_UUID", referencedColumnName = "UUID")
+  @ManyToOne
+  var user: User = _
 
-  override def toString: String = "用户ID：" + userId + "数学成绩：" + math + "英语成绩：" + english
+  override def toString: String = "用户：" + user.name + "数学成绩：" + math + "英语成绩：" + english
 
 }

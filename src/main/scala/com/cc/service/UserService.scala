@@ -14,4 +14,6 @@ class UserService extends BaseService[User] {
 
   def findByName(name: String): List[User] = userRepository.findByName(name)
 
+  def findAllUserAndScore(): List[Object] = userRepository.findAllUserAndScore()
+
 }

@@ -28,6 +28,11 @@ class UserController @Autowired()(private val userService: UserService) {
     userService.findAll
   }
 
+  @RequestMapping(value = Array("/scores"), method = Array(RequestMethod.GET))
+  def scores(): List[Object] = {
+    userService.findAllUserAndScore()
+  }
+
   @RequestMapping(value = Array("save"), method = Array(RequestMethod.POST))
   def save(@Valid user: User): User = {
     userService.save(user)

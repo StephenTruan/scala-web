@@ -1,9 +1,10 @@
 package com.cc.enties
 
+import java.util.Set
 import java.util.Date
 
 import scala.beans.BeanProperty
-import javax.persistence._
+import javax.persistence.{Table, Entity, Id, GeneratedValue, Column, OneToMany}
 
 import org.hibernate.validator.constraints.NotEmpty
 import org.springframework.format.annotation.DateTimeFormat
@@ -33,6 +34,9 @@ class User {
   @BeanProperty
   @NotEmpty
   var telephone: String = _
+
+  @OneToMany(mappedBy = "user")
+  var scores: Set[Score] = _
 
   override def toString = "id = " + id + ",name = " + name + ",birthday = " + birthday + ",telephone = " + telephone
 
